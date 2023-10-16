@@ -93,19 +93,68 @@ for n in range(1, 11):
 
 Diseñar una función que permita calcular una aproximación de la función exponencial alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función exponencial y mostrar la diferencia entre el valor real y la aproximación.
 
-
+```python
+import math
+def maclaurin(x, n):
+    aproximacion = 0
+    for i in range(n):
+        aproximacion += (x ** i) / math.factorial(i)
+    return aproximacion
+x = float(input("Ingrese el valor de x: "))
+n = int(input("Ingrese el número de términos de la serie de Maclaurin a utilizar: "))
+aproximacion = maclaurin(x, n)
+valor_real = math.exp(x)
+diferencia = valor_real - aproximacion
+print("La aproximación de la función exponencial para x = " +str(x)+ " utilizando los primeros " +str(n)+ " términos de la serie de Maclaurin es: " +str(aproximacion))
+print("El valor real de la función exponencial para x = " +str(x)+ " es: " +str(valor_real))
+print("La diferencia entre la aproximación y el valor real es: " +str(diferencia))
+```
 
 ### Punto 9
 
 Diseñar una función que permita calcular una aproximación de la función seno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función seno y mostrar la diferencia entre el valor real y la aproximación.
 
-
+```python
+import math
+def seno(x, n):
+    aproximacion = 0
+    for i in range(n):
+        aproximacion += ((-1) ** i) * (x ** (2 * i + 1)) / math.factorial(2 * i + 1)
+    return aproximacion
+x = float(input("Ingrese el valor de x: "))
+n = int(input("Ingrese el número de términos de la serie de maclaurin a utilizar: "))
+aproximacion = seno(x, n)
+valor_real = math.sin(x)
+diferencia = valor_real - aproximacion
+print("La aproximación de la función seno para x = " +str(x)+ " utilizando los primeros " +str(n)+ " términos de la serie de maclaurin: " +str(aproximacion))
+print("El valor real de la función seno para x = " +str(x)+ " es: " +str(valor_real))
+print("La diferencia entre la aproximación y el valor real es: " +str(diferencia))
+```
 
 ### Punto 10
 
 Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función arctan y mostrar la diferencia entre el valor real y la aproximación.
 
-
+```python
+import math
+def arctan(x, n):
+    aproximacion = 0
+    for i in range(n):
+        aproximacion += ((-1) ** i) * (x ** (2 * i + 1)) / (2 * i + 1)
+    return aproximacion
+x = float(input("Ingrese el valor de x (debe estar en el rango [-1, 1]): "))
+if x < -1 or x > 1:
+    print("Pero le acabé de decir que el valor de x debe estar en el rango [-1, 1].")
+    print("¿Usted cree que " +str(x)+ " está en el rango [-1, 1]?")
+else:
+    n = int(input("Ingrese el número de términos de la serie de Maclaurin a utilizar: "))
+    aproximacion = arctan(x, n)
+    valor_real = math.atan(x)
+    diferencia = valor_real - aproximacion
+    print("La aproximación de la función arcotangente para x = " +str(x)+ " utilizando los primeros " +str(n)+ " términos de la serie de Maclaurin es: " +str(aproximacion))
+    print("El valor real de la función arcotangente para x = " +str(n)+ " es: " +str(valor_real))
+    print("La diferencia entre la aproximación y el valor real es: " +str(diferencia))
+```
 
 
 
